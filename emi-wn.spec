@@ -1,5 +1,5 @@
 Name:		emi-wn
-Version:	3.0.0
+Version:	3.0.1
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -59,7 +59,12 @@ Requires:       jclassads
 Requires:       lcgdm-devel
 Requires:       lcgdm-devel
 %ifarch x86_64
+%if 0%{?fedora} > 10 || 0%{?rhel}>5
 Requires:       lcgdm-devel(x86-32)
+%else
+## EL 5 fix, force install of lcgdm-devel 32 bits
+Requires:	/usr/lib/liblcgdm.so
+%endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
 Requires:       lcg-info  
@@ -85,7 +90,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients3 
 Requires:       voms-devel  
-Source:         emi-wn-3.0.0.tar.gz
+Source:         emi-wn-3.0.1.tar.gz
 
 
 %description
@@ -109,6 +114,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.2-2 
+- fix for lcgdm-devel 32 bits dependency problem on EL5
 * Thu Feb 14 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-1
 - added gfal2-doc and gfal2-devel
 * Thu Oct 11 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.1-1
