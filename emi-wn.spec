@@ -1,5 +1,5 @@
 Name:		emi-wn
-Version:	3.0.1
+Version:	2.0.2
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -38,9 +38,8 @@ Requires:       gfal-py26
 Requires:       gfal2-all
 Requires:       gfal2-python
 Requires:       gfalFS
-Requires:       gfal2-all
-Requires:       gfal2-doc
-Requires:       gfal2-devel
+Requires:	gfal2-doc
+Requires:	gfal2-devel
 Requires:       glite-jobid-api-c  
 Requires:       glite-lb-client  
 Requires:       glite-lb-common  
@@ -60,10 +59,10 @@ Requires:       lcgdm-devel
 Requires:       lcgdm-devel
 %ifarch x86_64
 %if 0%{?fedora} > 10 || 0%{?rhel}>5
-Requires:       lcgdm-devel(x86-32)
+Requires: lcgdm-devel(x86-32)
 %else
 ## EL 5 fix, force install of lcgdm-devel 32 bits
-Requires:	/usr/lib/liblcgdm.so
+Requires: /usr/lib/liblcgdm.so
 %endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
@@ -88,9 +87,9 @@ Requires:	lfc-python26
 Requires:       openldap-clients
 Requires:       python-ldap  
 Requires:       uberftp
-Requires:       voms-clients3 
+Requires:       voms-clients  
 Requires:       voms-devel  
-Source:         emi-wn-3.0.1.tar.gz
+Source:         emi-wn-2.0.2.tar.gz
 
 
 %description
@@ -114,10 +113,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
-* Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.2-2 
-- fix for lcgdm-devel 32 bits dependency problem on EL5
-* Thu Feb 14 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-1
-- added gfal2-doc and gfal2-devel
+* Fri Oct 04 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.2-1 
+- fix for lcgdm-devel 32 bits dependency problem on EL5 (thanks Adrien Devresse)
+- added gfal2-doc and gfal2-devel (as described in the "CERN Grid Data Management Client Integration for EMI")
 * Thu Oct 11 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.1-1
 - passing to the final versioning
 * Fri Oct 05 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.0-4
