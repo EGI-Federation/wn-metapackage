@@ -1,5 +1,5 @@
 Name:		emi-wn
-Version:	3.0.1
+Version:	3.1.0
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -37,10 +37,12 @@ Requires:       gfal-py26
 %endif
 Requires:       gfal2-all
 Requires:       gfal2-python
+Requires:	gfal2-util
 Requires:       gfalFS
 Requires:       gfal2-all
 Requires:       gfal2-doc
 Requires:       gfal2-devel
+Requires:	ginfo
 Requires:       glite-jobid-api-c  
 Requires:       glite-lb-client  
 Requires:       glite-lb-common  
@@ -90,7 +92,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients3 
 Requires:       voms-devel  
-Source:         emi-wn-3.0.1.tar.gz
+Source:         emi-wn-3.1.0.tar.gz
 
 
 %description
@@ -114,6 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Sun Sep 07 2014 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.1.0-1
+- added dependecies on gfal2-util and ginfo (IGIRTC-176)
 * Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.2-2 
 - fix for lcgdm-devel 32 bits dependency problem on EL5
 * Thu Feb 14 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-1
