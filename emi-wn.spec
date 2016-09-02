@@ -1,5 +1,5 @@
 Name:		emi-wn
-Version:	3.1.0
+Version:	4.0.0
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -8,33 +8,33 @@ BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires:	a1_grid_env  
 Requires:       c-ares  
 Requires:       cleanup-grid-accounts  
-Requires:       dcache-srmclient
+#Requires:       dcache-srmclient
 Requires:       dcap
-Requires:       dcap-devel  
-Requires:       dcap-libs  
-Requires:       dcap-tunnel-gsi  
-Requires:       dcap-tunnel-krb  
-Requires:       dcap-tunnel-ssl  
-Requires:       dcap-tunnel-telnet
-Requires:       dpm
-Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
-Requires:       dpm-devel
-Requires:       dpm-perl
-Requires:	dpm-python
-%if "%{?dist}" == ".el5"
-Requires:       dpm-python26
-%endif
+#Requires:       dcap-devel  
+#Requires:       dcap-libs  
+#Requires:       dcap-tunnel-gsi  
+#Requires:       dcap-tunnel-krb  
+#Requires:       dcap-tunnel-ssl  
+#Requires:       dcap-tunnel-telnet
+#Requires:       dpm
+#Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
+#Requires:       dpm-devel
+#Requires:       dpm-perl
+#Requires:	dpm-python
+#%if "%{?dist}" == ".el5"
+#Requires:       dpm-python26
+#%endif
 Requires:       emi-version
-Requires:       emi.amga.amga-cli
-Requires:       emi.saga-adapter.context-cpp
-Requires:       emi.saga-adapter.isn-cpp  
-Requires:       emi.saga-adapter.sd-cpp  
+#Requires:       emi.amga.amga-cli
+#Requires:       emi.saga-adapter.context-cpp
+#Requires:       emi.saga-adapter.isn-cpp  
+#Requires:       emi.saga-adapter.sd-cpp  
 Requires:	fetch-crl
-Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
-Requires:       gfal-python
-%if "%{?dist}" == ".el5"
-Requires:       gfal-py26
-%endif
+#Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
+#Requires:       gfal-python
+#%if "%{?dist}" == ".el5"
+#Requires:       gfal-py26
+#%endif
 Requires:       gfal2-all
 Requires:       gfal2-python
 Requires:	gfal2-util
@@ -43,32 +43,32 @@ Requires:       gfal2-all
 Requires:       gfal2-doc
 Requires:       gfal2-devel
 Requires:	ginfo
-Requires:       glite-jobid-api-c  
-Requires:       glite-lb-client  
-Requires:       glite-lb-common  
-Requires:       glite-lb-client-progs
-Requires:       glite-lbjp-common-gss  
-Requires:       glite-lbjp-common-trio  
-Requires:       glite-service-discovery-api-c  
-Requires:       glite-wms-brokerinfo-access  
-Requires:       glite-wn-info  
-Requires:	glite-yaim-clients
-Requires:	glite-yaim-core
+#Requires:       glite-jobid-api-c  
+#Requires:       glite-lb-client  
+#Requires:       glite-lb-common  
+#Requires:       glite-lb-client-progs
+#Requires:       glite-lbjp-common-gss  
+#Requires:       glite-lbjp-common-trio  
+#Requires:       glite-service-discovery-api-c  
+#Requires:       glite-wms-brokerinfo-access  
+#Requires:       glite-wn-info  
+#Requires:	glite-yaim-clients
+#Requires:	glite-yaim-core
 Requires:       globus-gass-copy-progs
 Requires:       globus-proxy-utils
 Requires:       gridsite-libs
 Requires:       jclassads
-Requires:       lcgdm-devel
-Requires:       lcgdm-devel
-%ifarch x86_64
-%if 0%{?fedora} > 10 || 0%{?rhel}>5
-Requires:       lcgdm-devel(x86-32)
-%else
-## EL 5 fix, force install of lcgdm-devel 32 bits
-Requires:	/usr/lib/liblcgdm.so
-%endif
-%endif
-Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
+#Requires:       lcgdm-devel
+#Requires:       lcgdm-devel
+#%ifarch x86_64
+#%if 0%{?fedora} > 10 || 0%{?rhel}>5
+#Requires:       lcgdm-devel(x86-32)
+#%else
+### EL 5 fix, force install of lcgdm-devel 32 bits
+#Requires:	/usr/lib/liblcgdm.so
+#%endif
+#%endif
+#Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
 Requires:       lcg-info  
 Requires:       lcg-infosites  
 Requires:       lcg-ManageVOTag
@@ -76,9 +76,9 @@ Requires:       lcg-tags
 Requires:       lcg-util
 Requires:	liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
-%if "%{?dist}" == ".el5"
-Requires:       lcg-util-py26
-%endif
+#%if "%{?dist}" == ".el5"
+#Requires:       lcg-util-py26
+#%endif
 Requires:       lfc  
 Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
 Requires:       lfc-devel
@@ -92,7 +92,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients3 
 Requires:       voms-devel  
-Source:         emi-wn-3.1.0.tar.gz
+Source:         emi-wn-4.0.0.tar.gz
 
 
 %description
