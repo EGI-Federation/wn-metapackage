@@ -72,10 +72,10 @@ Requires:       jclassads
 Requires:       lcg-info  
 Requires:       lcg-infosites  
 Requires:       lcg-ManageVOTag
-Requires:       lcg-tags  
-Requires:       lcg-util
-Requires:	liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
-Requires:       lcg-util-python
+#Requires:       lcg-tags  
+#Requires:       lcg-util
+#Requires:	liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
+#Requires:       lcg-util-python
 #%if "%{?dist}" == ".el5"
 #Requires:       lcg-util-py26
 #%endif
@@ -90,7 +90,7 @@ Requires:	lfc-python26
 Requires:       openldap-clients
 Requires:       python-ldap  
 Requires:       uberftp
-Requires:       voms-clients3 
+Requires:       voms-clients-cpp 
 Requires:       voms-devel  
 Source:         emi-wn-4.0.0.tar.gz
 
