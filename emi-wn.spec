@@ -5,7 +5,7 @@ Summary:	EMI WN meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-Requires:	a1_grid_env  
+#Requires:	a1_grid_env  
 Requires:       c-ares  
 Requires:       cleanup-grid-accounts  
 #Requires:       dcache-srmclient
