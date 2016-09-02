@@ -10,12 +10,12 @@ Requires:       c-ares
 #Requires:       cleanup-grid-accounts  
 #Requires:       dcache-srmclient
 Requires:       dcap
-#Requires:       dcap-devel  
-#Requires:       dcap-libs  
-#Requires:       dcap-tunnel-gsi  
-#Requires:       dcap-tunnel-krb  
-#Requires:       dcap-tunnel-ssl  
-#Requires:       dcap-tunnel-telnet
+Requires:       dcap-devel  
+Requires:       dcap-libs  
+Requires:       dcap-tunnel-gsi  
+Requires:       dcap-tunnel-krb  
+Requires:       dcap-tunnel-ssl  
+Requires:       dcap-tunnel-telnet
 #Requires:       dpm
 #Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
 #Requires:       dpm-devel
