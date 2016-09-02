@@ -7,7 +7,7 @@ License:	ASL 2.0
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 #Requires:	a1_grid_env  
 Requires:       c-ares  
-Requires:       cleanup-grid-accounts  
+#Requires:       cleanup-grid-accounts  
 #Requires:       dcache-srmclient
 Requires:       dcap
 #Requires:       dcap-devel  
@@ -24,7 +24,7 @@ Requires:       dcap
 #%if "%{?dist}" == ".el5"
 #Requires:       dpm-python26
 #%endif
-Requires:       emi-version
+#Requires:       emi-version
 #Requires:       emi.amga.amga-cli
 #Requires:       emi.saga-adapter.context-cpp
 #Requires:       emi.saga-adapter.isn-cpp  
@@ -57,7 +57,7 @@ Requires:	ginfo
 Requires:       globus-gass-copy-progs
 Requires:       globus-proxy-utils
 Requires:       gridsite-libs
-Requires:       jclassads
+#Requires:       jclassads
 #Requires:       lcgdm-devel
 #Requires:       lcgdm-devel
 #%ifarch x86_64
@@ -69,9 +69,9 @@ Requires:       jclassads
 #%endif
 #%endif
 #Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
-Requires:       lcg-info  
+#Requires:       lcg-info  
 Requires:       lcg-infosites  
-Requires:       lcg-ManageVOTag
+#Requires:       lcg-ManageVOTag
 #Requires:       lcg-tags  
 #Requires:       lcg-util
 #Requires:	liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
@@ -80,7 +80,7 @@ Requires:       lcg-ManageVOTag
 #Requires:       lcg-util-py26
 #%endif
 Requires:       lfc  
-Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
+#Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
 Requires:       lfc-devel
 Requires:       lfc-perl
 Requires:	lfc-python
