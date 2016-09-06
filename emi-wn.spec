@@ -57,13 +57,13 @@ Requires:       lcgdm-devel
 Requires:       lcgdm-devel(x86-32)
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
 Requires:       lcg-info  
-Requires:       lcg-ManageVOTag
-Requires:       lcg-tags  
 Requires:       lcg-util
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
 #endif
+Requires:       lcg-ManageVOTag
+Requires:       lcg-tags
 Requires:       globus-gass-copy-progs
 Requires:       globus-proxy-utils
 Requires:       gridsite-libs
