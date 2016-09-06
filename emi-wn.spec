@@ -1,7 +1,7 @@
 %if %{?fedora}%{!?fedora:0} >= 17 || %{?rhel}%{!?rhel:0} >= 7
-%global systemd 1
+%global el6 0
 %else
-%global systemd 0
+%global el6 1
 %endif
 
 Name:		emi-wn
@@ -20,7 +20,7 @@ Requires:       dcap-tunnel-gsi
 Requires:       dcap-tunnel-krb  
 Requires:       dcap-tunnel-ssl  
 Requires:       dcap-tunnel-telnet
-%if %systemd
+%if %el6
 Requires:	a1_grid_env  
 Requires:       dcache-srmclient
 Requires:       dpm
@@ -45,7 +45,7 @@ Requires:       gfal2-all
 Requires:       gfal2-doc
 Requires:       gfal2-devel
 Requires:	      ginfo
-%if %systemd
+%if %el6
 Requires:       glite-jobid-api-c  
 Requires:       glite-lb-client  
 Requires:       glite-lb-common  
