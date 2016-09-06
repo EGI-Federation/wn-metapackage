@@ -61,7 +61,7 @@ Requires:       lcg-util
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
-#endif
+%endif
 Requires:       lcg-ManageVOTag
 Requires:       lcg-tags
 Requires:       globus-gass-copy-progs
