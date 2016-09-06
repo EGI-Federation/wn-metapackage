@@ -1,3 +1,9 @@
+%if %{?fedora}%{!?fedora:0} >= 17 || %{?rhel}%{!?rhel:0} >= 7
+%global systemd 1
+%else
+%global systemd 0
+%endif
+
 Name:		emi-wn
 Version:	4.0.0
 Release:	1%{?dist}
@@ -14,7 +20,7 @@ Requires:       dcap-tunnel-gsi
 Requires:       dcap-tunnel-krb  
 Requires:       dcap-tunnel-ssl  
 Requires:       dcap-tunnel-telnet
-%if "%{?dist}" != ".el7"
+%if %systemd
 Requires:	a1_grid_env  
 Requires:       dcache-srmclient
 Requires:       dpm
@@ -39,7 +45,7 @@ Requires:       gfal2-all
 Requires:       gfal2-doc
 Requires:       gfal2-devel
 Requires:	      ginfo
-%if "%{?dist}" != ".el7"
+%if %systemd
 Requires:       glite-jobid-api-c  
 Requires:       glite-lb-client  
 Requires:       glite-lb-common  
