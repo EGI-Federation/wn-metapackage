@@ -45,7 +45,7 @@ Requires:       lcg-infosites
 Requires:       lfc  
 Requires:       lfc-devel
 Requires:       lfc-perl
-Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
+Requires:       liblfc.so.1()(64bit), lfc-libs
 Requires:       openldap-clients
 Requires:       python-ldap  
 Requires:       uberftp
@@ -77,6 +77,7 @@ Requires:       jclassads
 Requires:       lcgdm-devel(x86-32)
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
 Requires:       lcg-util
+Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
