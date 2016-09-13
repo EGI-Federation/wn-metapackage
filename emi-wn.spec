@@ -1,4 +1,4 @@
-%if %{?fedora}%{!?fedora:0} >= 17 || %{?rhel}%{!?rhel:0} >= 7
+%if %{?rhel}%{!?rhel:0} >= 7
 %global el6 0
 %else
 %global el6 1
