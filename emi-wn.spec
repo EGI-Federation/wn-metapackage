@@ -20,23 +20,12 @@ Requires:       dcap-tunnel-gsi
 Requires:       dcap-tunnel-krb  
 Requires:       dcap-tunnel-ssl  
 Requires:       dcap-tunnel-telnet
-%if %el6
-Requires:	a1_grid_env  
-Requires:       dcache-srmclient
 Requires:       dpm
-Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
+Requires:       libdpm.so.1()(64bit),  dpm-libs
 Requires:       dpm-devel
 Requires:       dpm-perl
 Requires:	      dpm-python
-Requires:       emi-version
-Requires:       emi.amga.amga-cli
-Requires:       emi.saga-adapter.context-cpp
-Requires:       emi.saga-adapter.isn-cpp  
-Requires:       emi.saga-adapter.sd-cpp  
-Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
-Requires:       gfal-python
-%endif
-Requires:	fetch-crl
+Requires:	      fetch-crl
 Requires:       gfal2-all
 Requires:       gfal2-python
 Requires:	      gfal2-util
@@ -45,7 +34,34 @@ Requires:       gfal2-all
 Requires:       gfal2-doc
 Requires:       gfal2-devel
 Requires:	      ginfo
+Requires:       lcg-info  
+Requires:       lcg-ManageVOTag
+Requires:       lcg-tags
+Requires:       lcgdm-devel
+Requires:       globus-gass-copy-progs
+Requires:       globus-proxy-utils
+Requires:       gridsite-libs
+Requires:       lcg-infosites  
+Requires:       lfc  
+Requires:       lfc-devel
+Requires:       lfc-perl
+Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
+Requires:       openldap-clients
+Requires:       python-ldap  
+Requires:       uberftp
+Requires:       voms-clients-java
+Requires:       voms-devel  
 %if %el6
+Requires:	      a1_grid_env  
+Requires:       dcache-srmclient
+Requires:       libdpm.so.1
+Requires:       emi-version
+Requires:       emi.amga.amga-cli
+Requires:       emi.saga-adapter.context-cpp
+Requires:       emi.saga-adapter.isn-cpp  
+Requires:       emi.saga-adapter.sd-cpp  
+Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
+Requires:       gfal-python
 Requires:       glite-jobid-api-c  
 Requires:       glite-lb-client  
 Requires:       glite-lb-common  
@@ -58,30 +74,12 @@ Requires:       glite-wn-info
 Requires:	      glite-yaim-clients
 Requires:	      glite-yaim-core
 Requires:       jclassads
-Requires:       lcgdm-devel
-Requires:       lcgdm-devel
 Requires:       lcgdm-devel(x86-32)
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
 Requires:       lcg-util
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
-Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
 %endif
-Requires:       lcg-info  
-Requires:       lcg-ManageVOTag
-Requires:       lcg-tags
-Requires:       globus-gass-copy-progs
-Requires:       globus-proxy-utils
-Requires:       gridsite-libs
-Requires:       lcg-infosites  
-Requires:       lfc  
-Requires:       lfc-devel
-Requires:       lfc-perl
-Requires:       openldap-clients
-Requires:       python-ldap  
-Requires:       uberftp
-Requires:       voms-clients-java
-Requires:       voms-devel  
 Source:         emi-wn-4.0.0.tar.gz
 
 
