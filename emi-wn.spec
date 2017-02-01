@@ -52,7 +52,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients-java
 Requires:       voms-devel  
-Requires        umd-release
+Requires:       umd-release
 %if %el6
 Requires:	      a1_grid_env  
 Requires:       libdpm.so.1
