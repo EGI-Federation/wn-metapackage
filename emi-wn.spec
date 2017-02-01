@@ -52,6 +52,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients-java
 Requires:       voms-devel  
+Requires        umd-release
 %if %el6
 Requires:	      a1_grid_env  
 Requires:       libdpm.so.1
@@ -106,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Feb 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
-- added dcache-srm-client to C7
+- added dcache-srm-client and umd-release packages to C7
 * Mon Sep 05 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
 - first build for C7
 - remove SL5 support
