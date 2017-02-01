@@ -13,6 +13,7 @@ License:	ASL 2.0
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires:       c-ares  
 Requires:       cleanup-grid-accounts  
+Requires:       dcache-srmclient
 Requires:       dcap
 Requires:       dcap-devel  
 Requires:       dcap-libs  
@@ -53,7 +54,6 @@ Requires:       voms-clients-java
 Requires:       voms-devel  
 %if %el6
 Requires:	      a1_grid_env  
-Requires:       dcache-srmclient
 Requires:       libdpm.so.1
 Requires:       emi-version
 Requires:       emi.amga.amga-cli
