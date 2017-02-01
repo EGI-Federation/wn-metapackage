@@ -5,7 +5,7 @@
 %endif
 
 Name:		emi-wn
-Version:	4.0.0
+Version:	4.0.1
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -81,7 +81,7 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         emi-wn-4.0.0.tar.gz
+Source:         emi-wn-4.0.1.tar.gz
 
 
 %description
@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Wed Jan 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
+- added dcache-srm-client to C7
 * Mon Sep 05 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
 - first build for C7
 - remove SL5 support
