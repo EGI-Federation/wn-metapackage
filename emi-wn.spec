@@ -105,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
-* Wed Jan 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
+* Wed Feb 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
 - added dcache-srm-client to C7
 * Mon Sep 05 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
 - first build for C7
