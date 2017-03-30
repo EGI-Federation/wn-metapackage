@@ -5,7 +5,7 @@
 %endif
 
 Name:		emi-wn
-Version:	4.0.2
+Version:	4.0.3
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -47,6 +47,7 @@ Requires:       glite-lbjp-common-gss
 Requires:       glite-lbjp-common-trio  
 Requires:       globus-gass-copy-progs
 Requires:       globus-proxy-utils
+Requires:	      glite-yaim-core
 Requires:       gridsite-libs
 Requires:       lcg-infosites  
 Requires:       lfc  
@@ -72,7 +73,6 @@ Requires:       glite-service-discovery-api-c
 Requires:       glite-wms-brokerinfo-access  
 Requires:       glite-wn-info  
 Requires:	      glite-yaim-clients
-Requires:	      glite-yaim-core
 Requires:       jclassads
 Requires:       lcgdm-devel(x86-32)
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs  
@@ -81,7 +81,7 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         emi-wn-4.0.2.tar.gz
+Source:         emi-wn-4.0.3.tar.gz
 
 
 %description
@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Thu Mar 30 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
+- added glite-yaim-core
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
 - removed umd-release packages as they contain the UMD repos
 - added glite-lb-client-progs and deps
