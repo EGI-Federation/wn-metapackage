@@ -13,6 +13,7 @@ License:	ASL 2.0
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires:       c-ares  
 Requires:       cleanup-grid-accounts  
+Requires:       cvmfs
 Requires:       dcache-srmclient
 Requires:       dcap
 Requires:       dcap-devel  
@@ -106,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Thu Mar 30 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
-- added glite-yaim-core
+- added glite-yaim-core and cvmfs
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
 - removed umd-release packages as they contain the UMD repos
 - added glite-lb-client-progs and deps
