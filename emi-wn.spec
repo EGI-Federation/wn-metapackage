@@ -5,7 +5,7 @@
 %endif
 
 Name:		emi-wn
-Version:	4.0.3
+Version:	4.0.4
 Release:	1%{?dist}
 Summary:	EMI WN meta-packages
 Group:		Applications/Internet
@@ -40,12 +40,6 @@ Requires:       lcg-info
 Requires:       lcg-ManageVOTag
 Requires:       lcg-tags
 Requires:       lcgdm-devel
-Requires:       glite-jobid-api-c  
-Requires:       glite-lb-client  
-Requires:       glite-lb-common  
-Requires:       glite-lb-client-progs
-Requires:       glite-lbjp-common-gss  
-Requires:       glite-lbjp-common-trio  
 Requires:       globus-gass-copy-progs
 Requires:       globus-proxy-utils
 Requires:	      glite-yaim-core
@@ -70,6 +64,12 @@ Requires:       emi.saga-adapter.isn-cpp
 Requires:       emi.saga-adapter.sd-cpp  
 Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
 Requires:       gfal-python
+Requires:       glite-jobid-api-c  
+Requires:       glite-lb-client  
+Requires:       glite-lb-common  
+Requires:       glite-lb-client-progs
+Requires:       glite-lbjp-common-gss  
+Requires:       glite-lbjp-common-trio  
 Requires:       glite-service-discovery-api-c  
 Requires:       glite-wms-brokerinfo-access  
 Requires:       glite-wn-info  
@@ -82,7 +82,7 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         emi-wn-4.0.3.tar.gz
+Source:         emi-wn-4.0.4.tar.gz
 
 
 %description
@@ -106,6 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Wed May 24 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.4-1
+- removed glite-lb-client-progs and deps
 * Thu Mar 30 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
 - added glite-yaim-core and cvmfs
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
