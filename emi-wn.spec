@@ -54,6 +54,7 @@ Requires:       python-ldap
 Requires:       uberftp
 Requires:       voms-clients-java
 Requires:       voms-devel  
+Requires:       xrootd-client  
 %if %el6
 Requires:	      a1_grid_env  
 Requires:       libdpm.so.1
@@ -107,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed May 24 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.4-1
-- removed glite-lb-client-progs and deps
+- removed glite-lb-client-progs and deps, added xrootd-client
 * Thu Mar 30 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
 - added glite-yaim-core and cvmfs
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
