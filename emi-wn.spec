@@ -5,7 +5,7 @@
 %endif
 
 Name:		wn
-Version:	4.0.4
+Version:	4.0.5
 Release:	1%{?dist}
 Summary:	WN meta-packages
 Group:		Applications/Internet
@@ -83,7 +83,7 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         wn-4.0.4.tar.gz
+Source:         wn-4.0.5.tar.gz
 
 
 %description
