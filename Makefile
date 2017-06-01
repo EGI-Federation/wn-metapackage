@@ -1,8 +1,8 @@
 #as LF
 
-NAME= $(shell grep Name: emi-wn.spec | sed 's/^[^:]*:[^a-zA-Z]*//' )
-VERSION= $(shell grep Version: emi-wn.spec | sed 's/^[^:]*:[^0-9]*//' )
-RELEASE= $(shell grep Release: emi-wn.spec |cut -d"%" -f1 |sed 's/^[^:]*:[^0-9]*//')
+NAME= $(shell grep Name: wn.spec | sed 's/^[^:]*:[^a-zA-Z]*//' )
+VERSION= $(shell grep Version: wn.spec | sed 's/^[^:]*:[^0-9]*//' )
+RELEASE= $(shell grep Release: wn.spec |cut -d"%" -f1 |sed 's/^[^:]*:[^0-9]*//')
 build=$(shell pwd)/build
 DATE=$(shell date "+%a, %d %b %Y %T %z")
 dist=$(shell rpm --eval '%dist' | sed 's/%dist/.el5/')
