@@ -4,10 +4,10 @@
 %global el6 1
 %endif
 
-Name:		emi-wn
+Name:		wn
 Version:	4.0.4
 Release:	1%{?dist}
-Summary:	EMI WN meta-packages
+Summary:	WN meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
@@ -83,7 +83,7 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         emi-wn-4.0.4.tar.gz
+Source:         wn-4.0.4.tar.gz
 
 
 %description
@@ -107,6 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Thu Jun 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.5-1
+- renamed to wn
 * Wed May 24 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.4-1
 - removed glite-lb-client-progs and deps, added xrootd-client
 * Thu Mar 30 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
