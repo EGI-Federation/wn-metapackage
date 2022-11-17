@@ -4,13 +4,18 @@
 %global el6 1
 %endif
 
+%global debug_package %{nil}
+
 Name:		wn
 Version:	4.0.5
 Release:	1%{?dist}
-Summary:	WN meta-packages
+Summary:	Worker Node meta-package
 Group:		Applications/Internet
 License:	ASL 2.0
-BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+URL:	https://github.com/EGI-Federation/wn-metapackage
+Source:		%{name}-%{version}.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-%{version}-build
+
 Requires:       c-ares  
 Requires:       cleanup-grid-accounts  
 Requires:       cvmfs
@@ -83,7 +88,6 @@ Requires:       liblfc.so.1
 Requires:	      liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs  
 Requires:       lcg-util-python
 %endif
-Source:         wn-4.0.5.tar.gz
 
 
 %description
@@ -91,20 +95,21 @@ List of WN dependencies (APIs & clients).
 
 %prep
 
+%setup -q
+
 %build
-# Nothing to do
+# Nothing to build
 
 %install
-rm -rf $RPM_BUILD_ROOT
- mkdir -p $RPM_BUILD_ROOT
- find $RPM_BUILD_ROOT -name '*.la' -exec rm -rf {} \;
- find $RPM_BUILD_ROOT -name '*.pc' -exec sed -i -e "s|$RPM_BUILD_ROOT||g" {} \;
+rm -rf %{buildroot}
+make install prefix=%{buildroot}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+%doc /usr/share/doc/wn/README.md
 
 %changelog
 * Thu Jun 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.5-1
@@ -135,4 +140,3 @@ rm -rf $RPM_BUILD_ROOT
 - Added missing dependencis to the EMI 2 version (includes 32b)
 * Fri Apr 01 2011 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 1.0.0-0
 - First version for EMI
-
