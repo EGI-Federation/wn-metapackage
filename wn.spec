@@ -59,7 +59,6 @@ Requires: xrootd-client
 List of WN dependencies (APIs & clients).
 
 %prep
-
 %setup -q
 
 %build
