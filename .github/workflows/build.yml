@@ -27,6 +27,28 @@ jobs:
           path: |
             build/RPMS/x86_64/wn-*.el7.x86_64.rpm
 
+  almalinux9:
+    name: Build AlmaLinux 9 RPMs
+    runs-on: ubuntu-latest
+    container: almalinux:9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install build requisites
+        run: |
+          dnf install -y rpm-build rpmlint make rsync systemd-rpm-macros
+      - name: build rpm
+        run: |
+          make clean rpm
+          rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
+      - name: Upload RPMs
+        uses: actions/upload-artifact@v3
+        with:
+          name: rpms9
+          path: |
+            build/RPMS/x86_64/wn-*.el9.x86_64.rpm
+
   centos7-install:
     name: Install CentOS 7 RPMs
     needs: centos7
@@ -41,3 +63,18 @@ jobs:
           yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
           yum install -y http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.3-1.el7.centos.noarch.rpm
           yum localinstall -y wn-*.rpm
+
+  almalinux9-install:
+    name: Install AlmaLinux 9 RPMs
+    needs: almalinux9
+    runs-on: ubuntu-latest
+    container: almalinux:9
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: rpms9
+      - name: Install generated RPMs
+        run: |
+          # FIXME: add UMD5 when available
+          dnf install -y epel-release
+          dnf localinstall -y wn-*.rpm

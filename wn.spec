@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: wn
-Version: 4.0.5
+Version: 5.0.0
 Release: 1%{?dist}
 Summary: Worker Node meta-package
 Group: Applications/Internet
@@ -11,9 +11,6 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: c-ares
-Requires: cleanup-grid-accounts
-Requires: cvmfs
-Requires: dcache-srmclient
 Requires: dcap
 Requires: dcap-devel
 Requires: dcap-libs
@@ -21,33 +18,42 @@ Requires: dcap-tunnel-gsi
 Requires: dcap-tunnel-krb
 Requires: dcap-tunnel-ssl
 Requires: dcap-tunnel-telnet
+%if 0%{?rhel} == 7
+Requires: cvmfs
+Requires: cleanup-grid-accounts
+Requires: dcache-srmclient
 Requires: dpm
 Requires: libdpm.so.1()(64bit),  dpm-libs
 Requires: dpm-devel
 Requires: dpm-perl
 Requires: dpm-python
-Requires: fetch-crl
-Requires: gfal2-all
-Requires: gfal2-python
-Requires: gfal2-util
 Requires: gfalFS
-Requires: gfal2-all
-Requires: gfal2-doc
-Requires: gfal2-devel
 Requires: ginfo
 Requires: lcg-info
+Requires: lcg-infosites
 Requires: lcg-ManageVOTag
 Requires: lcg-tags
 Requires: lcgdm-devel
-Requires: globus-gass-copy-progs
-Requires: globus-proxy-utils
 Requires: glite-yaim-core
-Requires: gridsite-libs
-Requires: lcg-infosites
 Requires: lfc
 Requires: lfc-devel
 Requires: lfc-perl
 Requires: liblfc.so.1()(64bit), lfc-libs
+%endif
+Requires: fetch-crl
+Requires: gfal2-all
+Requires: gfal2-all
+%if 0%{?rhel} == 7
+Requires: gfal2-python
+%else
+Requires: gfal2-python3
+%endif
+Requires: gfal2-all
+Requires: gfal2-doc
+Requires: gfal2-devel
+Requires: globus-gass-copy-progs
+Requires: globus-proxy-utils
+Requires: gridsite-libs
 Requires: openldap-clients
 Requires: python-ldap
 Requires: uberftp
@@ -76,6 +82,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/wn/README.md
 
 %changelog
+* Tue Jun 04 2024 Andrea Manzi <andrea.manzi@egi.eu> - 5.0.0-1
+- Add support for EL9
 * Thu Jun 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.5-1
 - renamed to wn
 * Wed May 24 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.4-1

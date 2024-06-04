@@ -7,6 +7,9 @@ and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [5.0.0]
+- Added support for el9 (Andrea Manzi) (#2)
 - Drop support for RHEL6 (Baptiste Grenier) (#1)
 
 ## [4.0.5]
