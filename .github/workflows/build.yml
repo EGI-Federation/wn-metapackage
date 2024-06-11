@@ -67,18 +67,31 @@ jobs:
           yum install -y http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.3-1.el7.centos.noarch.rpm
           yum localinstall -y wn-*.rpm
 
-  install-almalinux:
-    strategy:
-      matrix:
-        almalinux-version: [8, 9]
-    name: Install AlmaLinux ${{ matrix.almalinux-version }} RPMs
+  install-almalinux8:
+    name: Install AlmaLinux 8 RPMs
     needs: build-almalinux
     runs-on: ubuntu-latest
-    container: almalinux:${{ matrix.almalinux-version }}
+    container: almalinux:8
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: rpms${{ matrix.almalinux-version }}
+          name: rpms8
+      - name: Install generated RPMs
+        run: |
+          # FIXME: add UMD5 when available
+          dnf install -y epel-release
+          dnf config-manager --set-enabled powertools
+          dnf localinstall -y wn-*.rpm
+
+  install-almalinux9:
+    name: Install AlmaLinux 9 RPMs
+    needs: build-almalinux
+    runs-on: ubuntu-latest
+    container: almalinux:9
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: rpms9
       - name: Install generated RPMs
         run: |
           # FIXME: add UMD5 when available
