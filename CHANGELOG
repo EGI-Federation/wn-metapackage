@@ -8,6 +8,9 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [5.1.0]
+- Added support for RHEL8 (Baptiste Grenier) (#4)
+
 ## [5.0.0]
 - Added support for el9 (Andrea Manzi) (#2)
 - Drop support for RHEL6 (Baptiste Grenier) (#1)

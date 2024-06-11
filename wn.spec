@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: wn
-Version: 5.0.0
+Version: 5.1.0
 Release: 1%{?dist}
 Summary: Worker Node meta-package
 Group: Applications/Internet
@@ -82,6 +82,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/wn/README.md
 
 %changelog
+* Tue Jun 11 2024 Baptiste Grenier <baptiste.grenier@egi.eu> - 5.1.0-1
+- Add support for RHEL8 (Baptiste Grenier) (#4)
 * Tue Jun 04 2024 Andrea Manzi <andrea.manzi@egi.eu> - 5.0.0-1
 - Add support for EL9
 * Thu Jun 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.5-1
