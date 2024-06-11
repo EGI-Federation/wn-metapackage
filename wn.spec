@@ -55,7 +55,11 @@ Requires: globus-gass-copy-progs
 Requires: globus-proxy-utils
 Requires: gridsite-libs
 Requires: openldap-clients
+%if 0%{?rhel} == 7
 Requires: python-ldap
+%else
+Requires: python3-ldap
+%endif
 Requires: uberftp
 Requires: voms-clients-java
 Requires: voms-devel
