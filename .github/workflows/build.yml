@@ -72,7 +72,7 @@ jobs:
       matrix:
         almalinux-version: [8, 9]
     name: Install AlmaLinux ${{ matrix.almalinux-version }} RPMs
-    needs: build-almalinux${{ matrix.almalinux-version }}
+    needs: build-almalinux
     runs-on: ubuntu-latest
     container: almalinux:${{ matrix.almalinux-version }}
     steps:
