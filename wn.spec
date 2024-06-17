@@ -11,6 +11,7 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: c-ares
+Requires: cvmfs
 Requires: dcap
 Requires: dcap-devel
 Requires: dcap-libs
@@ -19,7 +20,6 @@ Requires: dcap-tunnel-krb
 Requires: dcap-tunnel-ssl
 Requires: dcap-tunnel-telnet
 %if 0%{?rhel} == 7
-Requires: cvmfs
 Requires: cleanup-grid-accounts
 Requires: dcache-srmclient
 Requires: dpm
