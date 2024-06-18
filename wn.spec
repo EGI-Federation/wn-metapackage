@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: wn
-Version: 5.0.0
+Version: 5.1.0
 Release: 1%{?dist}
 Summary: Worker Node meta-package
 Group: Applications/Internet
@@ -11,6 +11,7 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: c-ares
+Requires: cvmfs
 Requires: dcap
 Requires: dcap-devel
 Requires: dcap-libs
@@ -19,7 +20,6 @@ Requires: dcap-tunnel-krb
 Requires: dcap-tunnel-ssl
 Requires: dcap-tunnel-telnet
 %if 0%{?rhel} == 7
-Requires: cvmfs
 Requires: cleanup-grid-accounts
 Requires: dcache-srmclient
 Requires: dpm
@@ -55,7 +55,11 @@ Requires: globus-gass-copy-progs
 Requires: globus-proxy-utils
 Requires: gridsite-libs
 Requires: openldap-clients
+%if 0%{?rhel} == 7
 Requires: python-ldap
+%else
+Requires: python3-ldap
+%endif
 Requires: uberftp
 Requires: voms-clients-java
 Requires: voms-devel
@@ -82,6 +86,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/wn/README.md
 
 %changelog
+* Tue Jun 11 2024 Baptiste Grenier <baptiste.grenier@egi.eu> - 5.1.0-1
+- Add support for RHEL8 (Baptiste Grenier) (#4)
 * Tue Jun 04 2024 Andrea Manzi <andrea.manzi@egi.eu> - 5.0.0-1
 - Add support for EL9
 * Thu Jun 01 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.5-1
