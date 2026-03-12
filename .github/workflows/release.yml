@@ -10,38 +10,15 @@ on:
       - "v*"
 
 jobs:
-  centos7:
-    name: Build centOS 7 RPMs
-    runs-on: ubuntu-latest
-    container: quay.io/centos/centos:7
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: install build requisites
-        run: |
-          yum install -y rpm-build rpmlint make rsync
-      - name: build rpm
-        run: |
-          make rpm
-          rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
-      - name: Upload rpms
-        uses: actions/upload-artifact@v3
-        with:
-          name: rpms7
-          path: |
-            build/RPMS/x86_64/wn-*.el7.x86_64.rpm
-            build/SRPMS/wn-*.el7.src.rpm
-
   build-almalinux:
     strategy:
       matrix:
-        almalinux-version: [8, 9]
+        almalinux-version: [8, 9, 10]
     name: Build AlmaLinux ${{ matrix.almalinux-version }} RPMs
     runs-on: ubuntu-latest
     container: almalinux:${{ matrix.almalinux-version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install build requisites
@@ -51,39 +28,12 @@ jobs:
         run: |
           make clean rpm
       - name: Upload RPMs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v8
         with:
           name: rpms${{ matrix.almalinux-version }}
           path: |
             build/RPMS/x86_64/wn-*.el${{ matrix.almalinux-version }}.x86_64.rpm
             build/SRPMS/wn-*.el${{ matrix.almalinux-version }}.src.rpm
-
-  release7:
-    name: Upload CentOS 7 release artefacts
-    needs: centos7
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: rpms7
-
-      - name: Find package name
-        id: package_name_centos7
-        run: |
-          rpm_path=$(find . -name 'wn-*.el7.x86_64.rpm')
-          src_path=$(find . -name 'wn-*.el7.src.rpm')
-          echo "rpm_path=${rpm_path}" >> "$GITHUB_OUTPUT"
-          echo "src_path=${src_path}" >> "$GITHUB_OUTPUT"
-
-      - name: Attach CentOS 7 RPMs to the release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          fail_on_unmatched_files: true
-          files: |
-            ${{ steps.package_name_centos7.outputs.rpm_path }}
-            ${{ steps.package_name_centos7.outputs.src_path }}
 
   release8:
     name: Upload AlmaLinux 8 release artefacts
@@ -92,7 +42,7 @@ jobs:
     needs: build-almalinux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: rpms8
       - name: Find package name
@@ -119,7 +69,7 @@ jobs:
     needs: build-almalinux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: rpms9
       - name: Find package name
@@ -138,3 +88,30 @@ jobs:
           files: |
             ${{ steps.package_name_almalinux9.outputs.rpm_path }}
             ${{ steps.package_name_almalinux9.outputs.src_path }}
+
+  release10:
+    name: Upload AlmaLinux 10 release artefacts
+    permissions:
+      contents: write # to upload release asset (softprops/action-gh-release)
+    needs: build-almalinux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: rpms9
+      - name: Find package name
+        id: package_name_almalinux10
+        run: |
+          rpm_path=$(find . -name 'wn-*.el10.x86_64.rpm')
+          src_path=$(find . -name 'wn-*.el10.src.rpm')
+          echo "rpm_path=${rpm_path}" >> "$GITHUB_OUTPUT"
+          echo "src_path=${src_path}" >> "$GITHUB_OUTPUT"
+      - name: Attach AlmaLinux 10 RPMs to the release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          fail_on_unmatched_files: true
+          files: |
+            ${{ steps.package_name_almalinux10.outputs.rpm_path }}
+            ${{ steps.package_name_almalinux10.outputs.src_path }}
