@@ -73,7 +73,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: rpms9
+          name: rpms10
       - name: Install generated RPMs
         run: |
           # FIXME: add UMD6 when available
