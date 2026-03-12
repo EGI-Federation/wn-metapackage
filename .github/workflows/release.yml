@@ -98,7 +98,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: rpms9
+          name: rpms10
       - name: Find package name
         id: package_name_almalinux10
         run: |
