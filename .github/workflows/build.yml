@@ -46,7 +46,7 @@ jobs:
           dnf install -y epel-release
           dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
           dnf config-manager --set-enabled powertools
-          dnf localinstall -y x86_64/wn-*.rpm
+          dnf localinstall -y wn-*.rpm
 
   install-almalinux9:
     name: Install AlmaLinux 9 RPMs
@@ -62,8 +62,8 @@ jobs:
           # FIXME: add UMD5 when available
           #dnf install -y epel-release
           #dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
-          dnf-install -y https://repository.egi.eu/repository/umd/5/al9/release/x86_64/umd-release-5.0.0-1.al9.alma.noarch.rpm
-          dnf localinstall -y x86_64/wn-*.rpm
+          dnf install -y https://repository.egi.eu/repository/umd/5/al9/release/x86_64/umd-release-5.0.0-1.al9.alma.noarch.rpm
+          dnf localinstall -y wn-*.rpm
 
   install-almalinux10:
     name: Install AlmaLinux 10 RPMs
@@ -79,4 +79,4 @@ jobs:
           # FIXME: add UMD6 when available
           dnf install -y epel-release
           dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
-          dnf localinstall -y x86_64/wn-*.rpm
+          dnf localinstall -y wn-*.rpm
