@@ -28,7 +28,6 @@ Requires: gfal2-doc
 Requires: gfal2-devel
 Requires: globus-gass-copy-progs
 Requires: globus-proxy-utils
-Requires: gridsite-libs
 Requires: openldap-clients
 Requires: python3-ldap
 %if 0%{?rhel} < 10
