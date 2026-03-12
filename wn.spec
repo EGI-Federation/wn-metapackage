@@ -1,11 +1,11 @@
 %global debug_package %{nil}
 
 Name: wn
-Version: 5.1.0
+Version: 5.2.0
 Release: 1%{?dist}
 Summary: Worker Node meta-package
 Group: Applications/Internet
-License: ASL 2.0
+License: Apache 2.0
 URL: https://github.com/EGI-Federation/wn-metapackage
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
@@ -86,6 +86,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/wn/README.md
 
 %changelog
+* Thu Mar 12 2026 Andrea Manzi <andrea.manzi@egi.eu> - 5.2.0-1
+- Add support for EL10
 * Tue Jun 11 2024 Baptiste Grenier <baptiste.grenier@egi.eu> - 5.1.0-1
 - Add support for RHEL8 (Baptiste Grenier) (#4)
 * Tue Jun 04 2024 Andrea Manzi <andrea.manzi@egi.eu> - 5.0.0-1

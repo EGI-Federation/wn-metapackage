@@ -1,29 +1,25 @@
 ---
-name: Check links
+name: Lint
 
-on:
-  pull_request:
+on: [pull_request]
 
 jobs:
-  markdown-link-check:
-    name: Check links using markdown-link-check
+  lint:
+    name: Static Checks
     runs-on: ubuntu-latest
 
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           # Make sure the actual branch is checked out when running on PR
           ref: ${{ github.event.pull_request.head.sha }}
           # Full git history needed to get proper list of changed files
           fetch-depth: 0
 
-      - name: Check links on new changes
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          config-file: ".github/linters/mlc_config.json"
-          check-modified-files-only: "yes"
-          use-quiet-mode: "yes"
-          use-verbose-mode: "yes"
-          base-branch: "main"
+      # Runs the MegaLinter action
+      - name: Run Super-Linter on new changes
+        uses: oxsecurity/megalinter@v9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
