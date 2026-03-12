@@ -19,35 +19,10 @@ Requires: dcap-tunnel-gsi
 Requires: dcap-tunnel-krb
 Requires: dcap-tunnel-ssl
 Requires: dcap-tunnel-telnet
-%if 0%{?rhel} == 7
-Requires: cleanup-grid-accounts
-Requires: dcache-srmclient
-Requires: dpm
-Requires: libdpm.so.1()(64bit),  dpm-libs
-Requires: dpm-devel
-Requires: dpm-perl
-Requires: dpm-python
-Requires: gfalFS
-Requires: ginfo
-Requires: lcg-info
-Requires: lcg-infosites
-Requires: lcg-ManageVOTag
-Requires: lcg-tags
-Requires: lcgdm-devel
-Requires: glite-yaim-core
-Requires: lfc
-Requires: lfc-devel
-Requires: lfc-perl
-Requires: liblfc.so.1()(64bit), lfc-libs
-%endif
 Requires: fetch-crl
 Requires: gfal2-all
 Requires: gfal2-all
-%if 0%{?rhel} == 7
-Requires: gfal2-python
-%else
 Requires: gfal2-python3
-%endif
 Requires: gfal2-all
 Requires: gfal2-doc
 Requires: gfal2-devel
@@ -55,12 +30,11 @@ Requires: globus-gass-copy-progs
 Requires: globus-proxy-utils
 Requires: gridsite-libs
 Requires: openldap-clients
-%if 0%{?rhel} == 7
-Requires: python-ldap
-%else
 Requires: python3-ldap
-%endif
+%if 0%{?rhel} < 10
+Requires: gridsite-libs
 Requires: uberftp
+%endif
 Requires: voms-clients-java
 Requires: voms-devel
 Requires: xrootd-client
